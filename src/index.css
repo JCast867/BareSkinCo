@@ -1,2 +1,16 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+	--color-primary: #f2efe9;
+	--color-espresso: #3b2820;
+	--color-mocha: #7a6358;
+
+	/* Quick start, long soft settle: the curve for anything arriving */
+	--ease-glide: cubic-bezier(0.22, 1, 0.36, 1);
+
+	/* Fonts are loaded from Google Fonts in index.html */
+	--font-didone: "Antic Didone", ui-serif, Georgia, serif;
+	--font-birthstone: "Birthstone", cursive;
+	--font-doulaise: "Monsieur La Doulaise", cursive;
+}
