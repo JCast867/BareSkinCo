@@ -84,7 +84,7 @@ export function MobileMenu({
 								to={link.to}
 								onClick={onNavigate}
 								style={{ transitionDelay: riseDelay(index) }}
-								className={`block py-1.5 font-didone text-5xl leading-tight active:text-mocha aria-[current=page]:underline aria-[current=page]:decoration-1 aria-[current=page]:underline-offset-[0.2em] ${rise}`}
+								className={`block py-1.5 font-didone text-5xl/tight active:text-mocha aria-[current=page]:underline aria-[current=page]:decoration-1 aria-[current=page]:underline-offset-[0.2em] ${rise}`}
 							>
 								{link.label}
 							</NavLink>
