@@ -1,6 +1,9 @@
 import type { Ref } from "react";
 import { NavLink } from "react-router";
 
+import { translations, useLanguage } from "../locales/language.ts";
+import type { Navigation } from "../locales/navigation.ts";
+
 type MenuButtonProps = {
 	isOpen: boolean;
 	onToggle: () => void;
@@ -13,11 +16,16 @@ type MenuButtonProps = {
  * `aria-expanded`, so the icon always matches what screen readers announce.
  */
 export function MenuButton({ isOpen, onToggle, ref }: MenuButtonProps) {
+	const text = translations[useLanguage()];
 	return (
 		<button
 			ref={ref}
 			type="button"
-			aria-label={isOpen ? "Close menu" : "Open menu"}
+			aria-label={
+				isOpen
+					? text.mobileMenu.button.menuToggleOff
+					: text.mobileMenu.button.menuToggleOn
+			}
 			aria-expanded={isOpen}
 			aria-controls="mobile-menu"
 			onClick={onToggle}
@@ -36,7 +44,7 @@ export function MenuButton({ isOpen, onToggle, ref }: MenuButtonProps) {
 }
 
 type MobileMenuProps = {
-	links: ReadonlyArray<{ label: string; to: string }>;
+	links: readonly Navigation[];
 	socials: ReadonlyArray<{ label: string; href: string }>;
 	isOpen: boolean;
 	onNavigate: () => void;
@@ -53,6 +61,7 @@ export function MobileMenu({
 	isOpen,
 	onNavigate,
 }: MobileMenuProps) {
+	const text = translations[useLanguage()];
 	function riseDelay(index: number) {
 		return isOpen ? `${String(150 + index * 70)}ms` : "0ms";
 	}
@@ -74,7 +83,7 @@ export function MobileMenu({
 			}`}
 		>
 			<nav
-				aria-label="Mobile"
+				aria-label={text.navigation.mobileLabel}
 				className="flex min-h-full flex-col px-5 pt-32 pb-[max(2.5rem,env(safe-area-inset-bottom))] sm:px-8"
 			>
 				<ul>
@@ -82,6 +91,7 @@ export function MobileMenu({
 						<li key={link.to} className="overflow-hidden">
 							<NavLink
 								to={link.to}
+								end={link.end}
 								onClick={onNavigate}
 								style={{ transitionDelay: riseDelay(index) }}
 								className={`block py-1.5 font-didone text-5xl/tight active:text-mocha aria-[current=page]:underline aria-[current=page]:decoration-1 aria-[current=page]:underline-offset-[0.2em] ${rise}`}

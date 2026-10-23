@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router";
 
+import type { Navigation } from "../locales/navigation.ts";
+
 type DesktopLinksProps = {
-	links: ReadonlyArray<{ label: string; to: string }>;
+	links: readonly Navigation[];
 };
 
 type Indicator = {
@@ -77,6 +79,7 @@ export function DesktopLinks({ links }: DesktopLinksProps) {
 				<li key={link.to}>
 					<NavLink
 						to={link.to}
+						end={link.end}
 						onMouseEnter={(event) =>
 							moveToLink(event.currentTarget)
 						}

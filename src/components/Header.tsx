@@ -2,20 +2,11 @@ import type { JSX } from "react";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { Link, useLocation } from "react-router";
 
+import { translations, useLanguage } from "../locales/language.ts";
+import { getNavigation } from "../locales/navigation.ts";
 import { DesktopLinks } from "./DesktopLinks.tsx";
 import { InstagramIcon, TikTokIcon } from "./Icons.tsx";
 import { MenuButton, MobileMenu } from "./MobileMenu.tsx";
-
-type Navigation = {
-	label: string;
-	to: string;
-};
-
-const links: readonly Navigation[] = [
-	{ label: "Home", to: "/" },
-	{ label: "Services", to: "/services" },
-	{ label: "About", to: "/about" },
-];
 
 type Social = {
 	label: string;
@@ -35,6 +26,10 @@ const socials: readonly Social[] = [
 const bookingLink = "https://google.com";
 
 export function Header() {
+	const language = useLanguage();
+	const text = translations[language];
+	const prefix = language === "es" ? "/es" : "";
+	const links = getNavigation(language);
 	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 	const hasScrolled = useHasScrolled();
 	const headerRef = useRef<HTMLElement>(null);
@@ -124,7 +119,7 @@ export function Header() {
 								onToggle={() => setIsMenuOpen((open) => !open)}
 							/>
 							<nav
-								aria-label="Main"
+								aria-label={text.navigation.mainLabel}
 								className="-ml-3 hidden md:block lg:-ml-4"
 							>
 								<DesktopLinks links={links} />
@@ -132,7 +127,7 @@ export function Header() {
 						</div>
 
 						<Link
-							to="/"
+							to={prefix || "/"}
 							onClick={closeMenu}
 							className={`rounded-sm font-didone text-[clamp(1.125rem,5.6vw,1.375rem)] leading-none tracking-[0.02em] whitespace-nowrap transition-[scale] duration-500 ease-glide focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-espresso motion-reduce:transition-none md:text-3xl lg:text-4xl ${
 								hasScrolled ? "md:scale-80" : ""
@@ -180,6 +175,7 @@ function useHasScrolled() {
 
 /** Same rising fill as Book, but no outline at rest so the icons stay quiet. */
 function SocialLinks() {
+	const text = translations[useLanguage()];
 	return (
 		<ul className="hidden items-center gap-1 md:flex">
 			{socials.map(({ label, href, icon: Icon }) => (
@@ -188,7 +184,10 @@ function SocialLinks() {
 						href={href}
 						target="_blank"
 						rel="noreferrer"
-						aria-label={`Beauty Space Co on ${label}`}
+						aria-label={text.social.profileLabel.replace(
+							"{platform}",
+							label,
+						)}
 						className="group/fill relative isolate flex size-10 items-center justify-center overflow-hidden rounded-full transition-colors duration-500 ease-glide hover:text-primary focus-visible:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-espresso"
 					>
 						<RisingFill />
@@ -205,13 +204,16 @@ function SocialLinks() {
  * inset ring rather than a border so the fill can cover it without a seam.
  */
 function BookLink() {
+	const language = useLanguage();
+	const text = translations[language];
 	return (
 		<a
 			href={bookingLink}
 			className="group/fill relative isolate flex h-9 items-center overflow-hidden rounded-full px-4 font-didone text-[0.9375rem] leading-none inset-ring inset-ring-espresso transition-colors duration-500 ease-glide hover:text-primary focus-visible:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-espresso md:h-10 md:px-5 md:text-base"
 		>
 			<RisingFill />
-			Book<span className="hidden sm:inline">&nbsp;now</span>
+			<span className="sm:hidden">{text.navigation.bookShort}</span>
+			<span className="hidden sm:inline">{text.navigation.bookFull}</span>
 		</a>
 	);
 }
