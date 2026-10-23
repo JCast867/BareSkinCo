@@ -1,0 +1,20 @@
+{
+	"navigation": {
+		"home": "Inicio",
+		"services": "Servicios",
+		"about": "Nosotros",
+		"bookShort": "Reservar",
+		"bookFull": "Reservar cita",
+		"mainLabel": "Navegación principal",
+		"mobileLabel": "Navegación móvil"
+	},
+	"mobileMenu": {
+		"button": {
+			"menuToggleOff": "Cerrar Menú",
+			"menuToggleOn": "Abrir Menú"
+		}
+	},
+	"social": {
+		"profileLabel": "Beauty Space Co en {platform}"
+	}
+}

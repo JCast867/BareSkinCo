@@ -1,25 +1,6 @@
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { RouterProvider } from "react-router";
 
-import { Layout } from "./components/Layout.tsx";
-
-const router = createBrowserRouter([
-	{
-		path: "/",
-		Component: Layout,
-		children: [
-			{},
-			{
-				path: "services",
-			},
-			{
-				path: "about",
-			},
-			{
-				path: "book",
-			},
-		],
-	},
-]);
+import { router } from "./routes/routes.ts";
 
 export function App() {
 	return <RouterProvider router={router} />;

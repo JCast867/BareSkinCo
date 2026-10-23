@@ -7,7 +7,8 @@
 		"oxc",
 		"react",
 		"jsx-a11y",
-		"import"
+		"import",
+		"vitest"
 	],
 	"jsPlugins": ["eslint-plugin-better-tailwindcss"],
 	"env": {
@@ -288,8 +289,20 @@
 	},
 	"overrides": [
 		{
-			// Build tooling runs in Node, not the browser
-			"files": ["*.config.ts"],
+			"files": ["tests/**/*.mts"],
+			"rules": {
+				"vitest/no-focused-tests": "error",
+				"vitest/no-disabled-tests": "error",
+				"vitest/no-identical-title": "error",
+				"vitest/valid-expect": "error",
+				"vitest/expect-expect": "error",
+				"vitest/no-conditional-expect": "error",
+				"vitest/prefer-to-have-length": "error"
+			}
+		},
+		{
+			// Build tooling and tests run in Node, not the browser
+			"files": ["*.config.ts", "tests/**/*.mts"],
 			"env": { "browser": false, "node": true },
 			"rules": {
 				"eslint/no-restricted-globals": "off",
