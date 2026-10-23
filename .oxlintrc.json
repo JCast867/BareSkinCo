@@ -9,11 +9,15 @@
 		"jsx-a11y",
 		"import"
 	],
+	"jsPlugins": ["eslint-plugin-better-tailwindcss"],
 	"env": {
 		"browser": true,
 		"builtin": true
 	},
 	"settings": {
+		"better-tailwindcss": {
+			"entryPoint": "./src/index.css"
+		},
 		"react": {
 			"linkComponents": [
 				{ "name": "Link", "attribute": "to" },
@@ -33,6 +37,22 @@
 		"pedantic": "error"
 	},
 	"rules": {
+		// ---- Tailwind CSS 4: correctness and safe class cleanup ----
+		"better-tailwindcss/no-unknown-classes": "error",
+		"better-tailwindcss/no-conflicting-classes": "error",
+		"better-tailwindcss/no-concatenated-classes": "error",
+		"better-tailwindcss/no-duplicate-classes": "error",
+		"better-tailwindcss/no-deprecated-classes": "error",
+		"better-tailwindcss/no-unnecessary-whitespace": "error",
+		"better-tailwindcss/enforce-canonical-classes": "error",
+		"better-tailwindcss/enforce-consistent-important-position": [
+			"error",
+			{ "position": "recommended" }
+		],
+		// Oxfmt owns class ordering and wrapping to keep fixes consistent.
+		"better-tailwindcss/enforce-consistent-class-order": "off",
+		"better-tailwindcss/enforce-consistent-line-wrapping": "off",
+
 		// ---- Frontend only: this site makes no network requests ----
 		"eslint/no-restricted-globals": [
 			"error",
