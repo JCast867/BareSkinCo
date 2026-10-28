@@ -2,6 +2,7 @@ import type { JSX } from "react";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { Link, useLocation } from "react-router";
 
+import { bookingLink } from "../config/site.ts";
 import { translations, useLanguage } from "../locales/language.ts";
 import { getNavigation } from "../locales/navigation.ts";
 import { DesktopLinks } from "./DesktopLinks.tsx";
@@ -22,8 +23,6 @@ const socials: readonly Social[] = [
 	},
 	{ label: "TikTok", href: "https://www.tiktok.com/", icon: TikTokIcon },
 ];
-
-const bookingLink = "https://google.com";
 
 export function Header() {
 	const language = useLanguage();

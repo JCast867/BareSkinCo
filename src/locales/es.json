@@ -16,5 +16,12 @@
 	},
 	"social": {
 		"profileLabel": "Beauty Space Co en {platform}"
+	},
+	"hero": {
+		"eyebrow": "Dos esteticistas / Un mismo espacio",
+		"headingFirst": "Piel suave.",
+		"headingSecond": "Buena energía.",
+		"description": "Servicios profesionales de depilación con cera, cejas y más, en un espacio limpio, cómodo y acogedor.",
+		"book": "Reservar cita"
 	}
 }
