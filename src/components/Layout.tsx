@@ -13,7 +13,7 @@ export function Layout() {
 		<>
 			<Header />
 
-			<main className="px-5 sm:px-8 lg:px-16">
+			<main>
 				<Outlet />
 			</main>
 		</>

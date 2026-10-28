@@ -16,5 +16,12 @@
 	},
 	"social": {
 		"profileLabel": "Beauty Space Co on {platform}"
+	},
+	"hero": {
+		"eyebrow": "Two estheticians / One shared space",
+		"headingFirst": "Smooth skin.",
+		"headingSecond": "Good energy.",
+		"description": "Professional waxing services, brows & more — in a clean, comfortable, and welcoming space.",
+		"book": "Book now"
 	}
 }
