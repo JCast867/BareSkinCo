@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from "react";
-import { NavLink } from "react-router";
+import { useState } from "react";
 
 import type { Navigation } from "../locales/navigation.ts";
 
@@ -27,20 +26,11 @@ function indicatorUnder(label: HTMLElement | null) {
 	};
 }
 
-function activeLabel(list: HTMLElement | null): HTMLElement | null {
-	return (
-		list?.querySelector<HTMLElement>(
-			'[aria-current="page"] [data-label]',
-		) ?? null
-	);
-}
-
 /**
  * Desktop links with a single underline that slides to whichever link is
- * hovered/focused, and settles back under the current page's link.
+ * hovered/focused, and fades out when the interaction ends.
  */
 export function DesktopLinks({ links }: DesktopLinksProps) {
-	const listRef = useRef<HTMLUListElement>(null);
 	const [indicator, setIndicator] = useState<Indicator | null>(null);
 
 	function moveToLink(link: HTMLElement) {
@@ -49,47 +39,26 @@ export function DesktopLinks({ links }: DesktopLinksProps) {
 		);
 	}
 
-	function moveToActive() {
-		setIndicator(indicatorUnder(activeLabel(listRef.current)));
+	function hideIndicator() {
+		setIndicator(indicatorUnder(null));
 	}
 
-	useEffect(() => {
-		const list = listRef.current;
-		const update = () => {
-			setIndicator(indicatorUnder(activeLabel(list)));
-		};
-		const resizeObserver = new ResizeObserver(update);
-		const mutationObserver = new MutationObserver(update);
-		if (list !== null) {
-			resizeObserver.observe(list);
-			mutationObserver.observe(list, {
-				subtree: true,
-				attributeFilter: ["aria-current"],
-			});
-		}
-		return () => {
-			resizeObserver.disconnect();
-			mutationObserver.disconnect();
-		};
-	}, []);
-
 	return (
-		<ul ref={listRef} className="group/links relative flex items-center">
+		<ul className="group/links relative flex items-center">
 			{links.map((link) => (
-				<li key={link.to}>
-					<NavLink
-						to={link.to}
-						end={link.end}
+				<li key={link.label}>
+					<a
+						href={link.to}
 						onMouseEnter={(event) =>
 							moveToLink(event.currentTarget)
 						}
 						onFocus={(event) => moveToLink(event.currentTarget)}
-						onMouseLeave={moveToActive}
-						onBlur={moveToActive}
+						onMouseLeave={hideIndicator}
+						onBlur={hideIndicator}
 						className="block rounded-sm px-3 py-2 font-didone text-[1.0625rem] transition-colors duration-300 group-hover/links:text-mocha hover:text-espresso focus-visible:outline-2 focus-visible:outline-espresso lg:px-4"
 					>
 						<span data-label>{link.label}</span>
-					</NavLink>
+					</a>
 				</li>
 			))}
 

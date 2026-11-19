@@ -118,38 +118,34 @@ for (const [path, expected] of [
 	});
 }
 
-for (const [language, prefix] of [
-	["en", ""],
-	["es", "/es"],
+for (const [language, path, labels] of [
+	["en", "/", ["Home", "Services", "About"]],
+	["es", "/es", ["Inicio", "Servicios", "Nosotros"]],
 ] as const) {
 	const components: ReadonlyArray<
 		ComponentType<ComponentProps<typeof MobileMenu>>
 	> = [DesktopLinks, MobileMenu];
 	for (const Component of components) {
-		for (const [suffix, label] of [
-			["", language === "es" ? "Inicio" : "Home"],
-			["/services", language === "es" ? "Servicios" : "Services"],
-		] as const) {
-			const path = `${prefix}${suffix}` || "/";
-			test(`${Component.name}: only ${label} is current at ${path}`, () => {
-				const html = render(
-					path,
-					createElement(Component, {
-						links: getNavigation(language),
-						socials: [],
-						isOpen: true,
-						onNavigate() {},
-					}),
-				);
-				expect([
-					...html.matchAll(/aria-current="page"/gu),
-				]).toHaveLength(1);
-				const active = html.match(
-					/<a\b[^>]*aria-current="page"[^>]*>(.*?)<\/a>/u,
-				)?.[1];
-				expect(active?.replaceAll(/<[^>]*>/gu, "")).toBe(label);
-			});
-		}
+		test(`${Component.name}: translated section links stay on ${path}`, () => {
+			const html = render(
+				path,
+				createElement(Component, {
+					links: getNavigation(language),
+					socials: [],
+					isOpen: true,
+					onNavigate() {},
+				}),
+			);
+			expect(
+				Array.from(
+					html.matchAll(/href="([^"]+)"/gu),
+					(match) => match[1],
+				),
+			).toEqual(["#", "#services", "#about"]);
+			expect(html).not.toContain('aria-current="page"');
+			const text = html.replaceAll(/<[^>]*>/gu, "");
+			expect(text).toBe(labels.join(""));
+		});
 	}
 }
 
