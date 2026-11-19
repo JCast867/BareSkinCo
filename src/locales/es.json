@@ -34,5 +34,13 @@
 		"fullArm": "Brazo completo",
 		"halfArm": "Medio brazo",
 		"promotion": "(precios promocionales disponibles)"
+	},
+	"vision": {
+		"eyebrow": "Sobre nosotras",
+		"headingFirst": "Dos chicas.",
+		"headingSecond": "Una misma visión.",
+		"description": "Somos dos esteticistas con licencia que compartimos la pasión de ayudarte a sentirte con confianza en tu piel. Cada una tiene su propio estilo, pero nos une el mismo objetivo: brindarte una experiencia cómoda, resultados suaves y un espacio donde siempre te sientas a gusto.",
+		"imageAlt": "Las dos esteticistas detrás de Bare Skin Co y Cherry Glow Studio, espalda con espalda",
+		"meet": "Conócenos"
 	}
 }
