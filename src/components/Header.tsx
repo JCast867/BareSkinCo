@@ -1,4 +1,3 @@
-import type { JSX } from "react";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { Link, useLocation } from "react-router";
 
@@ -6,23 +5,8 @@ import { bookingLink } from "../config/site.ts";
 import { translations, useLanguage } from "../locales/language.ts";
 import { getNavigation } from "../locales/navigation.ts";
 import { DesktopLinks } from "./DesktopLinks.tsx";
-import { InstagramIcon, TikTokIcon } from "./Icons.tsx";
 import { MenuButton, MobileMenu } from "./MobileMenu.tsx";
-
-type Social = {
-	label: string;
-	href: string;
-	icon: () => JSX.Element;
-};
-
-const socials: readonly Social[] = [
-	{
-		label: "Instagram",
-		href: "https://www.instagram.com/",
-		icon: InstagramIcon,
-	},
-	{ label: "TikTok", href: "https://www.tiktok.com/", icon: TikTokIcon },
-];
+import { socials } from "./socials.ts";
 
 export function Header() {
 	const language = useLanguage();

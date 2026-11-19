@@ -32,8 +32,8 @@
 		"underarms": "Axilas",
 		"brow": "Depilación y tinte de cejas",
 		"fullArm": "Brazo completo",
-		"halfArm": "Medio brazo",
-		"promotion": "(precios promocionales disponibles)"
+		"fullLegs": "Piernas completas",
+		"fullBody": "Depilación de cuerpo completo"
 	},
 	"vision": {
 		"eyebrow": "Sobre nosotras",
@@ -42,5 +42,10 @@
 		"description": "Somos dos esteticistas con licencia que compartimos la pasión de ayudarte a sentirte con confianza en tu piel. Cada una tiene su propio estilo, pero nos une el mismo objetivo: brindarte una experiencia cómoda, resultados suaves y un espacio donde siempre te sientas a gusto.",
 		"imageAlt": "Las dos esteticistas detrás de Bare Skin Co y Cherry Glow Studio, espalda con espalda",
 		"meet": "Conócenos"
+	},
+	"footer": {
+		"area": "Atendemos East y West Dundee",
+		"services": "Depilación + cejas",
+		"language": "Se habla español"
 	}
 }
