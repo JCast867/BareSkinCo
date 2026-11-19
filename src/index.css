@@ -5,6 +5,8 @@
 	--color-primary: #f2efe9;
 	--color-espresso: #3b2820;
 	--color-mocha: #7a6358;
+	/* The darkest roast, for the footer: reads as black but stays warm */
+	--color-roast: #1c1411;
 
 	/* Quick start, long soft settle: the curve for anything arriving */
 	--ease-glide: cubic-bezier(0.22, 1, 0.36, 1);

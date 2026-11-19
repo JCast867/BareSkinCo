@@ -4,15 +4,17 @@ import {
 	UnderarmsIcon,
 	BrowIcon,
 	FullArmIcon,
-	HalfArmIcon,
+	FullLegsIcon,
+	FullBodyIcon,
 } from "./Icons.tsx";
 
 const services = [
-	{ key: "brazilian", price: "$55+", icon: BrazilianIcon },
-	{ key: "underarms", price: "$20", icon: UnderarmsIcon },
-	{ key: "brow", price: "$45", icon: BrowIcon },
-	{ key: "fullArm", price: "$55", icon: FullArmIcon },
-	{ key: "halfArm", price: "$35", icon: HalfArmIcon },
+	{ key: "brazilian", icon: BrazilianIcon },
+	{ key: "underarms", icon: UnderarmsIcon },
+	{ key: "brow", icon: BrowIcon },
+	{ key: "fullArm", icon: FullArmIcon },
+	{ key: "fullLegs", icon: FullLegsIcon },
+	{ key: "fullBody", icon: FullBodyIcon },
 ] as const;
 
 export function Services() {
@@ -40,11 +42,11 @@ export function Services() {
 					</p>
 				</div>
 
-				<ul className="mt-9 grid grid-cols-2 gap-y-9 lg:grid-cols-5 lg:gap-y-0">
-					{services.map(({ key, price, icon: Icon }) => (
+				<ul className="mt-9 grid grid-cols-2 gap-y-9 sm:grid-cols-3 lg:grid-cols-6 lg:gap-y-0">
+					{services.map(({ key, icon: Icon }) => (
 						<li
 							key={key}
-							className="flex flex-col items-center px-4 text-center last:col-span-2 lg:border-l lg:border-espresso/15 lg:first:border-l-0 lg:last:col-span-1"
+							className="flex flex-col items-center px-4 text-center lg:border-l lg:border-espresso/15 lg:first:border-l-0"
 						>
 							<div className="text-espresso/75">
 								<Icon />
@@ -52,14 +54,6 @@ export function Services() {
 							<h3 className="mt-4 text-xs/relaxed font-semibold tracking-[0.2em] uppercase">
 								{text[key]}
 							</h3>
-							<p className="mt-2 text-sm font-semibold">
-								{price}
-							</p>
-							{key === "brazilian" && (
-								<p className="mt-2 text-sm/relaxed text-espresso/80">
-									{text.promotion}
-								</p>
-							)}
 						</li>
 					))}
 				</ul>

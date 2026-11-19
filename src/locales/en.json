@@ -32,8 +32,8 @@
 		"underarms": "Underarms",
 		"brow": "Brow wax + tint",
 		"fullArm": "Full arm",
-		"halfArm": "Half arm",
-		"promotion": "(promo pricing available)"
+		"fullLegs": "Full legs",
+		"fullBody": "Full body waxing"
 	},
 	"vision": {
 		"eyebrow": "About us",
@@ -42,5 +42,10 @@
 		"description": "We're two licensed estheticians with a shared passion for helping you feel confident in your skin. Each of us brings our own style, but we're united by the same goal — to give you a comfortable experience, smooth results, and a space where you always feel at ease.",
 		"imageAlt": "The two estheticians behind Bare Skin Co and Cherry Glow Studio, standing back to back",
 		"meet": "Get to know us"
+	},
+	"footer": {
+		"area": "Serving East & West Dundee",
+		"services": "Waxing + brows",
+		"language": "Se habla español"
 	}
 }

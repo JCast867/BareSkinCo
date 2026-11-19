@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Outlet } from "react-router";
 
 import { useLanguage } from "../locales/language.ts";
+import { Footer } from "./Footer.tsx";
 import { Header } from "./Header.tsx";
 
 export function Layout() {
@@ -16,6 +17,8 @@ export function Layout() {
 			<main>
 				<Outlet />
 			</main>
+
+			<Footer />
 		</>
 	);
 }
