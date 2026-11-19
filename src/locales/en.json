@@ -23,5 +23,16 @@
 		"headingSecond": "Good energy.",
 		"description": "Professional waxing services, brows & more — in a clean, comfortable, and welcoming space.",
 		"book": "Book now"
+	},
+	"services": {
+		"eyebrow": "Our services",
+		"heading": "Waxing + brows",
+		"description": "Smooth skin, clean results, every time.",
+		"brazilian": "Brazilian",
+		"underarms": "Underarms",
+		"brow": "Brow wax + tint",
+		"fullArm": "Full arm",
+		"halfArm": "Half arm",
+		"promotion": "(promo pricing available)"
 	}
 }

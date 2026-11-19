@@ -27,7 +27,6 @@ const socials: readonly Social[] = [
 export function Header() {
 	const language = useLanguage();
 	const text = translations[language];
-	const prefix = language === "es" ? "/es" : "";
 	const links = getNavigation(language);
 	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 	const hasScrolled = useHasScrolled();
@@ -126,7 +125,7 @@ export function Header() {
 						</div>
 
 						<Link
-							to={prefix || "/"}
+							to="/"
 							onClick={closeMenu}
 							className={`rounded-sm font-didone text-[clamp(1.125rem,5.6vw,1.375rem)] leading-none tracking-[0.02em] whitespace-nowrap transition-[scale] duration-500 ease-glide focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-espresso motion-reduce:transition-none md:text-3xl lg:text-4xl ${
 								hasScrolled ? "md:scale-80" : ""

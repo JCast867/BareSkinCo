@@ -23,5 +23,16 @@
 		"headingSecond": "Buena energía.",
 		"description": "Servicios profesionales de depilación con cera, cejas y más, en un espacio limpio, cómodo y acogedor.",
 		"book": "Reservar cita"
+	},
+	"services": {
+		"eyebrow": "Nuestros servicios",
+		"heading": "Depilación + cejas",
+		"description": "Piel suave, resultados impecables, siempre.",
+		"brazilian": "Depilación brasileña",
+		"underarms": "Axilas",
+		"brow": "Depilación y tinte de cejas",
+		"fullArm": "Brazo completo",
+		"halfArm": "Medio brazo",
+		"promotion": "(precios promocionales disponibles)"
 	}
 }

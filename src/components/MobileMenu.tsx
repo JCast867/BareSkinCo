@@ -1,5 +1,4 @@
 import type { Ref } from "react";
-import { NavLink } from "react-router";
 
 import { translations, useLanguage } from "../locales/language.ts";
 import type { Navigation } from "../locales/navigation.ts";
@@ -88,16 +87,15 @@ export function MobileMenu({
 			>
 				<ul>
 					{links.map((link, index) => (
-						<li key={link.to} className="overflow-hidden">
-							<NavLink
-								to={link.to}
-								end={link.end}
+						<li key={link.label} className="overflow-hidden">
+							<a
+								href={link.to}
 								onClick={onNavigate}
 								style={{ transitionDelay: riseDelay(index) }}
-								className={`block py-1.5 font-didone text-5xl/tight active:text-mocha aria-[current=page]:underline aria-[current=page]:decoration-1 aria-[current=page]:underline-offset-[0.2em] ${rise}`}
+								className={`block py-1.5 font-didone text-5xl/tight active:text-mocha ${rise}`}
 							>
 								{link.label}
-							</NavLink>
+							</a>
 						</li>
 					))}
 				</ul>
