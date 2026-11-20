@@ -1,6 +1,6 @@
 import { bookingLink } from "../config/site.ts";
 import { translations, useLanguage } from "../locales/language.ts";
-import { socials } from "./socials.ts";
+import { SocialMenu } from "./SocialMenu.tsx";
 
 export function Footer() {
 	const text = translations[useLanguage()];
@@ -38,24 +38,10 @@ export function Footer() {
 						</span>
 					</a>
 
-					<ul className="flex items-center gap-1 lg:justify-self-end">
-						{socials.map(({ label, href, icon: Icon }) => (
-							<li key={label}>
-								<a
-									href={href}
-									target="_blank"
-									rel="noreferrer"
-									aria-label={text.social.profileLabel.replace(
-										"{platform}",
-										label,
-									)}
-									className="flex size-11 items-center justify-center rounded-full transition-colors duration-300 ease-glide hover:bg-primary/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary motion-reduce:transition-none"
-								>
-									<Icon />
-								</a>
-							</li>
-						))}
-					</ul>
+					<SocialMenu
+						placement="footer"
+						className="lg:justify-self-end"
+					/>
 				</div>
 
 				<ul className="mt-8 flex flex-col items-center gap-2 text-center text-xs font-medium tracking-[0.25em] text-primary/75 uppercase lg:mt-6 lg:flex-row lg:justify-center lg:gap-0">

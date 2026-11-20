@@ -15,7 +15,7 @@ test.each([
 			"Waxing + brows",
 			"Se habla español",
 		],
-		instagram: "Beauty Space Co on Instagram",
+		instagram: "Follow us on Instagram",
 	},
 	{
 		path: "/es",
@@ -25,7 +25,7 @@ test.each([
 			"Depilación + cejas",
 			"Se habla español",
 		],
-		instagram: "Beauty Space Co en Instagram",
+		instagram: "Síguenos en Instagram",
 	},
 ])(
 	"footer at $path translates its booking link, details and social labels",

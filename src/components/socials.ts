@@ -1,19 +1,36 @@
 import type { JSX } from "react";
 
+import { socialLinks } from "../config/site.ts";
 import { InstagramIcon, TikTokIcon } from "./Icons.tsx";
 
-export type Social = {
-	label: string;
-	href: string;
-	icon: () => JSX.Element;
+export type Platform = keyof typeof socialLinks.bareSkinCo;
+
+export type Studio = {
+	name: string;
+	/** Each studio's name is always set in its own signature script. */
+	font: string;
+	profiles: Record<Platform, string>;
 };
 
-// Shared by the header and footer so both always point to the same profiles.
-export const socials: readonly Social[] = [
+export const platforms: ReadonlyArray<{
+	key: Platform;
+	label: string;
+	icon: () => JSX.Element;
+}> = [
+	{ key: "instagram", label: "Instagram", icon: InstagramIcon },
+	{ key: "tiktok", label: "TikTok", icon: TikTokIcon },
+];
+
+// Shared by the header, mobile menu and footer so all point to the same profiles.
+export const studios: readonly Studio[] = [
 	{
-		label: "Instagram",
-		href: "https://www.instagram.com/",
-		icon: InstagramIcon,
+		name: "Bare Skin Co",
+		font: "font-birthstone",
+		profiles: socialLinks.bareSkinCo,
 	},
-	{ label: "TikTok", href: "https://www.tiktok.com/", icon: TikTokIcon },
+	{
+		name: "Cherry Glow Studio",
+		font: "font-doulaise",
+		profiles: socialLinks.cherryGlowStudio,
+	},
 ];

@@ -131,7 +131,7 @@ for (const [language, path, labels] of [
 				path,
 				createElement(Component, {
 					links: getNavigation(language),
-					socials: [],
+					studios: [],
 					isOpen: true,
 					onNavigate() {},
 				}),
@@ -160,7 +160,7 @@ test("Spanish menu accessibility labels are translated and controls reference th
 		"/es",
 		createElement(MobileMenu, {
 			links: getNavigation("es"),
-			socials: [],
+			studios: [],
 			isOpen: true,
 			onNavigate() {},
 		}),
@@ -172,7 +172,9 @@ test("Spanish menu accessibility labels are translated and controls reference th
 test("Spanish header translates navigation, social accessibility labels, and complete booking text", () => {
 	const html = render("/es", createElement(Header));
 	expect(html).toMatch(/aria-label="Navegación principal"/u);
-	expect(html).toMatch(/aria-label="Beauty Space Co en Instagram"/u);
+	expect(html).toMatch(/aria-label="Síguenos en Instagram"/u);
+	expect(html).toMatch(/aria-label="Bare Skin Co en Instagram"/u);
+	expect(html).toMatch(/aria-label="Cherry Glow Studio en TikTok"/u);
 	expect(html).toMatch(/>Reservar cita</u);
 	expect(html).not.toMatch(/&nbsp;now/u);
 });

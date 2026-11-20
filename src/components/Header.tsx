@@ -6,7 +6,9 @@ import { translations, useLanguage } from "../locales/language.ts";
 import { getNavigation } from "../locales/navigation.ts";
 import { DesktopLinks } from "./DesktopLinks.tsx";
 import { MenuButton, MobileMenu } from "./MobileMenu.tsx";
-import { socials } from "./socials.ts";
+import { RisingFill } from "./RisingFill.tsx";
+import { SocialMenu } from "./SocialMenu.tsx";
+import { studios } from "./socials.ts";
 
 export function Header() {
 	const language = useLanguage();
@@ -119,7 +121,10 @@ export function Header() {
 						</Link>
 
 						<div className="flex items-center justify-end gap-2 lg:gap-4">
-							<SocialLinks />
+							<SocialMenu
+								placement="header"
+								className="max-md:hidden"
+							/>
 							<BookLink />
 						</div>
 					</div>
@@ -127,7 +132,7 @@ export function Header() {
 
 				<MobileMenu
 					links={links}
-					socials={socials}
+					studios={studios}
 					isOpen={isMenuOpen}
 					onNavigate={closeMenu}
 				/>
@@ -155,32 +160,6 @@ function useHasScrolled() {
 	);
 }
 
-/** Same rising fill as Book, but no outline at rest so the icons stay quiet. */
-function SocialLinks() {
-	const text = translations[useLanguage()];
-	return (
-		<ul className="hidden items-center gap-1 md:flex">
-			{socials.map(({ label, href, icon: Icon }) => (
-				<li key={label}>
-					<a
-						href={href}
-						target="_blank"
-						rel="noreferrer"
-						aria-label={text.social.profileLabel.replace(
-							"{platform}",
-							label,
-						)}
-						className="group/fill relative isolate flex size-10 items-center justify-center overflow-hidden rounded-full transition-colors duration-500 ease-glide hover:text-primary focus-visible:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-espresso"
-					>
-						<RisingFill />
-						<Icon />
-					</a>
-				</li>
-			))}
-		</ul>
-	);
-}
-
 /**
  * Outlined at rest; on hover the fill rises up into it. The outline is an
  * inset ring rather than a border so the fill can cover it without a seam.
@@ -197,18 +176,5 @@ function BookLink() {
 			<span className="sm:hidden">{text.navigation.bookShort}</span>
 			<span className="hidden sm:inline">{text.navigation.bookFull}</span>
 		</a>
-	);
-}
-
-/**
- * Espresso that rises up into a link on hover or keyboard focus. The link
- * needs `group/fill relative isolate overflow-hidden` and a rounded shape.
- */
-function RisingFill() {
-	return (
-		<span
-			aria-hidden="true"
-			className="absolute inset-0 -z-10 translate-y-full rounded-full bg-espresso transition-[translate] duration-500 ease-glide group-hover/fill:translate-y-0 group-focus-visible/fill:translate-y-0 motion-reduce:transition-none"
-		/>
 	);
 }

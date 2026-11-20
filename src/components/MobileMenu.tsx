@@ -2,6 +2,8 @@ import type { Ref } from "react";
 
 import { translations, useLanguage } from "../locales/language.ts";
 import type { Navigation } from "../locales/navigation.ts";
+import type { Studio } from "./socials.ts";
+import { platforms } from "./socials.ts";
 
 type MenuButtonProps = {
 	isOpen: boolean;
@@ -44,7 +46,7 @@ export function MenuButton({ isOpen, onToggle, ref }: MenuButtonProps) {
 
 type MobileMenuProps = {
 	links: readonly Navigation[];
-	socials: ReadonlyArray<{ label: string; href: string }>;
+	studios: readonly Studio[];
 	isOpen: boolean;
 	onNavigate: () => void;
 };
@@ -56,7 +58,7 @@ type MobileMenuProps = {
  */
 export function MobileMenu({
 	links,
-	socials,
+	studios,
 	isOpen,
 	onNavigate,
 }: MobileMenuProps) {
@@ -100,20 +102,41 @@ export function MobileMenu({
 					))}
 				</ul>
 
+				{/*
+				 * The same signature pair as the about section, each name over its
+				 * own profiles. There's room here, so no dropdown is needed.
+				 */}
 				<ul
 					style={{ transitionDelay: riseDelay(links.length) }}
-					className={`mt-auto flex gap-8 border-t border-espresso/10 pt-6 ${rise}`}
+					className={`mt-auto flex border-t border-espresso/10 pt-6 ${rise}`}
 				>
-					{socials.map(({ label, href }) => (
-						<li key={label}>
-							<a
-								href={href}
-								target="_blank"
-								rel="noreferrer"
-								className="font-didone text-lg text-mocha active:text-espresso"
+					{studios.map(({ name, font, profiles }) => (
+						<li
+							key={name}
+							className="border-espresso/15 pr-3 not-first:border-l not-first:pl-3 sm:pr-5 sm:not-first:pl-5"
+						>
+							<p
+								className={`text-[clamp(1.125rem,6vw,1.75rem)] leading-none whitespace-nowrap ${font}`}
 							>
-								{label}
-							</a>
+								{name}
+							</p>
+							<ul className="mt-2 -ml-2.5 flex">
+								{platforms.map(({ key, label, icon: Icon }) => (
+									<li key={key}>
+										<a
+											href={profiles[key]}
+											target="_blank"
+											rel="noreferrer"
+											aria-label={text.social.profileLabel
+												.replace("{studio}", name)
+												.replace("{platform}", label)}
+											className="flex size-11 items-center justify-center rounded-full text-mocha focus-visible:outline-2 focus-visible:outline-espresso active:text-espresso"
+										>
+											<Icon />
+										</a>
+									</li>
+								))}
+							</ul>
 						</li>
 					))}
 				</ul>

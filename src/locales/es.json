@@ -15,7 +15,8 @@
 		}
 	},
 	"social": {
-		"profileLabel": "Beauty Space Co en {platform}"
+		"followLabel": "Síguenos en {platform}",
+		"profileLabel": "{studio} en {platform}"
 	},
 	"hero": {
 		"eyebrow": "Dos esteticistas / Un mismo espacio",

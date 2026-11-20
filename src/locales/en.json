@@ -15,7 +15,8 @@
 		}
 	},
 	"social": {
-		"profileLabel": "Beauty Space Co on {platform}"
+		"followLabel": "Follow us on {platform}",
+		"profileLabel": "{studio} on {platform}"
 	},
 	"hero": {
 		"eyebrow": "Two estheticians / One shared space",
