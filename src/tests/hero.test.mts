@@ -3,8 +3,8 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { MemoryRouter } from "react-router";
 import { expect, test } from "vitest";
 
-import { bookingLink } from "../src/config/site.ts";
-import { Home } from "../src/pages/Home.tsx";
+import { bookingLink } from "../config/site.ts";
+import { Home } from "../pages/Home.tsx";
 
 test.each([
 	{
