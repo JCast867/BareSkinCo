@@ -44,6 +44,25 @@
 		"imageAlt": "Las dos esteticistas detrás de Bare Skin Co y Cherry Glow Studio, espalda con espalda",
 		"meet": "Conócenos"
 	},
+	"whyUs": {
+		"eyebrow": "Por qué elegirnos",
+		"clean": {
+			"first": "Prácticas limpias",
+			"second": "y seguras"
+		},
+		"comfort": {
+			"first": "Un espacio cómodo",
+			"second": "y acogedor"
+		},
+		"results": {
+			"first": "Resultados de calidad",
+			"second": "que duran"
+		},
+		"team": {
+			"first": "Dos profesionales,",
+			"second": "más flexibilidad"
+		}
+	},
 	"footer": {
 		"area": "Atendemos East y West Dundee",
 		"services": "Depilación + cejas",

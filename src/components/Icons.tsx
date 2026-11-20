@@ -135,3 +135,59 @@ export function FullBodyIcon() {
 		</ServiceIcon>
 	);
 }
+
+function FeatureIcon({ children }: { children: ReactNode }) {
+	return (
+		<svg
+			viewBox="0 0 40 40"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="1.25"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+			className="size-11"
+			aria-hidden="true"
+		>
+			{children}
+		</svg>
+	);
+}
+
+export function LeafIcon() {
+	return (
+		<FeatureIcon>
+			<path d="M12 28C10 18 18 9 31 9C31 21 24 29 12 28Z" />
+			<path d="M8 32L24 16" />
+		</FeatureIcon>
+	);
+}
+
+export function HeartIcon() {
+	return (
+		<FeatureIcon>
+			<path d="M20 32.5C20 32.5 6 24.5 6 15.5C6 11 9.5 7.5 13.5 7.5C16.5 7.5 18.8 9.3 20 11.8C21.2 9.3 23.5 7.5 26.5 7.5C30.5 7.5 34 11 34 15.5C34 24.5 20 32.5 20 32.5Z" />
+		</FeatureIcon>
+	);
+}
+
+export function SparkleIcon() {
+	return (
+		<FeatureIcon>
+			<path d="M20 6Q21.5 17.5 31 19Q21.5 20.5 20 32Q18.5 20.5 9 19Q18.5 17.5 20 6Z" />
+			<circle cx="12" cy="29" r="0.9" fill="currentColor" stroke="none" />
+			<circle cx="28" cy="29" r="0.9" fill="currentColor" stroke="none" />
+		</FeatureIcon>
+	);
+}
+
+/** One figure in front, the other just behind her shoulder. */
+export function TwoPeopleIcon() {
+	return (
+		<FeatureIcon>
+			<circle cx="16" cy="13" r="5.5" />
+			<path d="M6 33C6 25 10.5 21 16 21C21.5 21 26 25 26 33" />
+			<path d="M18.9 8.33A5.5 5.5 0 1 1 20.1 16.67" />
+			<path d="M21.3 22.5C22.3 21.5 23.2 21 24.5 21C30 21 34 25 34 32" />
+		</FeatureIcon>
+	);
+}
