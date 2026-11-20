@@ -44,6 +44,25 @@
 		"imageAlt": "The two estheticians behind Bare Skin Co and Cherry Glow Studio, standing back to back",
 		"meet": "Get to know us"
 	},
+	"whyUs": {
+		"eyebrow": "Why choose us",
+		"clean": {
+			"first": "Clean & safe",
+			"second": "practices"
+		},
+		"comfort": {
+			"first": "Comfortable",
+			"second": "& welcoming space"
+		},
+		"results": {
+			"first": "Quality results",
+			"second": "that last"
+		},
+		"team": {
+			"first": "Two professionals,",
+			"second": "more flexibility"
+		}
+	},
 	"footer": {
 		"area": "Serving East & West Dundee",
 		"services": "Waxing + brows",

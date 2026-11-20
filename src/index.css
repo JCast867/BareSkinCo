@@ -5,6 +5,8 @@
 	--color-primary: #f2efe9;
 	--color-espresso: #3b2820;
 	--color-mocha: #7a6358;
+	/* The mockup's soft band behind Why choose us, a shade warmer than cream */
+	--color-linen: #f0e9e1;
 	/* The darkest roast, for the footer: reads as black but stays warm */
 	--color-roast: #1c1411;
 
