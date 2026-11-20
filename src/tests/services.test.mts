@@ -3,7 +3,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { MemoryRouter } from "react-router";
 import { expect, test } from "vitest";
 
-import { Services } from "../src/components/Services.tsx";
+import { Services } from "../components/Services.tsx";
 
 test.each([
 	{

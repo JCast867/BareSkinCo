@@ -289,7 +289,7 @@
 	},
 	"overrides": [
 		{
-			"files": ["tests/**/*.mts"],
+			"files": ["src/tests/**/*.mts"],
 			"rules": {
 				"vitest/no-focused-tests": "error",
 				"vitest/no-disabled-tests": "error",
@@ -302,7 +302,7 @@
 		},
 		{
 			// Build tooling and tests run in Node, not the browser
-			"files": ["*.config.ts", "tests/**/*.mts"],
+			"files": ["*.config.ts", "src/tests/**/*.mts"],
 			"env": { "browser": false, "node": true },
 			"rules": {
 				"eslint/no-restricted-globals": "off",

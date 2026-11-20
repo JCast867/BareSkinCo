@@ -29,5 +29,5 @@
 		"stylesheet": "./src/index.css",
 		"functions": ["clsx", "cn", "cva", "tw"]
 	},
-	"ignorePatterns": ["dist", "node_modules", "package-lock.json"]
+	"ignorePatterns": ["dist", "node_modules", "pnpm-lock.yaml"]
 }

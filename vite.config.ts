@@ -6,7 +6,7 @@ import { defineConfig } from "vitest/config";
 export default defineConfig({
 	test: {
 		environment: "node",
-		include: ["tests/**/*.test.mts"],
+		include: ["src/tests/**/*.test.mts"],
 	},
 	plugins: [react({ compiler: true }), tailwindcss()],
 });

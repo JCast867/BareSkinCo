@@ -4,12 +4,12 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { MemoryRouter } from "react-router";
 import { expect, test } from "vitest";
 
-import { DesktopLinks } from "../src/components/DesktopLinks.tsx";
-import { Header } from "../src/components/Header.tsx";
-import { MenuButton, MobileMenu } from "../src/components/MobileMenu.tsx";
-import { initializeLanguage } from "../src/locales/bootstrap.ts";
-import { useLanguage } from "../src/locales/language.ts";
-import { getNavigation } from "../src/locales/navigation.ts";
+import { DesktopLinks } from "../components/DesktopLinks.tsx";
+import { Header } from "../components/Header.tsx";
+import { MenuButton, MobileMenu } from "../components/MobileMenu.tsx";
+import { initializeLanguage } from "../locales/bootstrap.ts";
+import { useLanguage } from "../locales/language.ts";
+import { getNavigation } from "../locales/navigation.ts";
 
 type Redirect = {
 	state: unknown;

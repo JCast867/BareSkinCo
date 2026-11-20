@@ -4,5 +4,7 @@
 		"tsBuildInfoFile": "./node_modules/.tmp/tsconfig.test.tsbuildinfo",
 		"types": ["node", "vite/client"]
 	},
-	"include": ["tests/**/*.mts"]
+	"include": ["src/tests/**/*.mts"],
+	/* Reset the "exclude" inherited from tsconfig.app.json */
+	"exclude": []
 }

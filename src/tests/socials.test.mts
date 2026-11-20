@@ -4,9 +4,9 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { MemoryRouter } from "react-router";
 import { expect, test } from "vitest";
 
-import { Footer } from "../src/components/Footer.tsx";
-import { Header } from "../src/components/Header.tsx";
-import { socialLinks } from "../src/config/site.ts";
+import { Footer } from "../components/Footer.tsx";
+import { Header } from "../components/Header.tsx";
+import { socialLinks } from "../config/site.ts";
 
 function render(path: string, component: () => ReactNode) {
 	return renderToStaticMarkup(

@@ -12,7 +12,7 @@
 		"lint:fix": "oxlint --fix",
 		"format": "oxfmt",
 		"format:check": "oxfmt --check",
-		"check": "npm run typecheck && npm run lint && npm run format:check && npm test",
+		"check": "pnpm run typecheck && pnpm run lint && pnpm run format:check && pnpm test",
 		"fix": "oxlint --fix && oxfmt",
 		"test": "vitest run",
 		"test:watch": "vitest"
@@ -25,21 +25,24 @@
 		"tailwindcss": "^4.3.5"
 	},
 	"devDependencies": {
-		"@types/node": "^24.13.3",
+		"@axe-core/playwright": "^4.14.0",
+		"@types/node": "^26.6.6",
 		"@types/react": "^19.3.0",
 		"@types/react-dom": "^19.3.0",
 		"@vitejs/plugin-react": "^6.3.0",
 		"eslint-plugin-better-tailwindcss": "^4.11.0",
-		"oxc-transform-react": "^0.158.0",
+		"oxc-transform-react": "^0.156.0",
 		"oxfmt": "^0.79.0",
 		"oxlint": "^1.94.0",
 		"oxlint-tsgolint": "^7.0.2007",
+		"playwright": "^1.65.1",
 		"typescript": "~6.0.3",
 		"vite": "^8.3.8",
 		"vitest": "^5.1.1"
 	},
 	"engines": {
-		"node": "^24.22.1",
-		"npm": "^12.2.1"
-	}
+		"node": "^26.13.1",
+		"pnpm": "^12.21.0"
+	},
+	"packageManager": "pnpm@12.21.0"
 }
